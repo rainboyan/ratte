@@ -1,0 +1,9 @@
+Ratte CHANGELOG
+===============================
+0.4 (2010-10-20)
+-------------------------------
+* Feature
+  * 支持OAuth访问Twitter
+  * 升级Google App Engine到1.3.8
+  * 升级Groovy到1.7.5
+  * 升级Gaelyk到0.5.6
