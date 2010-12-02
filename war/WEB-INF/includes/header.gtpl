@@ -17,7 +17,6 @@
 		<div id="navWrapper">
 			<ul id="nav">
 				<li class="page_item"><a href="/" title="Home">Home</a></li>
-				<li class="page_item"><a href="/blog" title="Home">Blog</a></li>
 				<li class="page_item page-item-2"><a href="/about" title="关于">About</a></li>
 			</ul>
 		</div>
