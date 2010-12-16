@@ -1,10 +1,10 @@
-import groovy.util.slurpersupport.GPathResult
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import org.scribe.builder.*
 import org.scribe.builder.api.*
 import org.scribe.model.*
 import org.scribe.oauth.*
+import groovy.util.slurpersupport.GPathResult
 import groovyx.gaelyk.logging.GroovyLogger
 
 class Twitter {
@@ -22,10 +22,10 @@ class Twitter {
     XmlSlurper slurper = new XmlSlurper()
 
 	Twitter() {
-		def config = new Config()
+		def config = ConfigurationHolder.config
         username = config.twitter.username
 		service = new ServiceBuilder().provider(TwitterApi.class).apiKey(config.twitter.consumer.key).apiSecret(config.twitter.consumer.secret).build()
-        token = new Token(config.twitter.oauth_token, config.twitter.oauth_token_secret)
+        token = new Token(config.twitter.oauth.token, config.twitter.oauth.token_secret)
 	}
 
 	Map parseUser(GPathResult root)
@@ -55,7 +55,7 @@ class Twitter {
 			else { }
 		}
 		catch (any) {
-			log.warning "XHTTP Get ${url} error: ${any.message}"
+			log.warning "HTTP Get ${url} error: ${any.message}"
 		}
 	}
 
@@ -89,8 +89,19 @@ class Twitter {
     }
     
     List<Map> getTweets() {
+    	getTweets(-1)
+    }
+
+    List<Map> getTweets(long sinceId) {
     	def tweets = []
-        Get("$API_ROOT/statuses/user_timeline/${username}.xml", service, token) { data ->
+        def url = "$API_ROOT/statuses/user_timeline/${username}.xml"
+        if (sinceId > 0) {
+            url = url + "?since_id=" + sinceId
+        }
+        else if (sinceId == 0) {
+            url = url + "?count=5"
+        }
+        Get(url, service, token) { data ->
         	def statuses = slurper.parseText(data)
 			statuses.children().each { status ->
 			    def tweet = [:]

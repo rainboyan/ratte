@@ -16,7 +16,7 @@
 								<ul class="socialmedia">
 									<li><a href="http://twitter.com/rainboyan"><img src="/images/icons/twitter_16.png" alt="Rain's Twitter" /></a></li>
 									<li><a href="http://facebook.com/rainboyan"><img src="/images/icons/facebook_16.png" alt="Rain's Facebook" /></a></li>
-									<li><a href="http://last.fm/rainboyan"><img src="/images/icons/lastfm_16.png" alt="Rain's LastFM" /></a></li>
+									<li><a href="http://cn.last.fm/user/rainboyan"><img src="/images/icons/lastfm_16.png" alt="Rain's LastFM" /></a></li>
 									<li><a href="http://flickr.com/people/rainboyan"><img src="/images/icons/flickr_16.png" alt="Rain's Flickr" /></a></li>
 									<li><a href="http://skype.com/rainboyan"><img src="/images/icons/skype_16.png" alt="Rain's Skype" /></a></li>
 									<li><a href="/?feed=rss2"><img src="/images/icons/rss_16.png" alt="Rain's Feed" /></a></li>
@@ -34,6 +34,7 @@
 						<li class="panel divider"><h2 class="panelTitle">Links</h2>
 							<ul class='xoxo blogroll'>
 								<li><a href="http://rainboyan.com/">Rain's Blog</a></li>
+								<li><a href="http://code.google.com/p/ratte/">Ratte</a></li>
 								<li><a href="http://twitter.com/">Twitter</a></li>
 								<li><a href="http://code.google.com/appengine">Google App Engine</a></li>
 								<li><a href="http://gaelyk.appspot.com/">Gaelyk</a></li>
