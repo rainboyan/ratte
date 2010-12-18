@@ -24,7 +24,7 @@ class Twitter {
 	Twitter() {
 		def config = ConfigurationHolder.config
         username = config.twitter.username
-		service = new ServiceBuilder().provider(TwitterApi.class).apiKey(config.twitter.consumer.key).apiSecret(config.twitter.consumer.secret).build()
+		service = new ServiceBuilder().provider(TwitterApi.class).apiKey(config.twitter.oauth.consumer_key).apiSecret(config.twitter.oauth.consumer_secret).build()
         token = new Token(config.twitter.oauth.token, config.twitter.oauth.token_secret)
 	}
 
