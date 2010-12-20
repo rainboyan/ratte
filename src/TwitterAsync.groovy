@@ -6,17 +6,24 @@ class TwitterAsync {
     static final GroovyLogger log = new GroovyLogger('TwitterAsync')
     
     def init = false
+    def config
 
     String username
     Twitter twitter
     Sina sina
+    Douban douban
 
     TwitterAsync() {
         if (!init) {
-            def config = ConfigurationHolder.config
+            config = ConfigurationHolder.config
             username = config.twitter.username
             twitter = new Twitter()
-            sina = new Sina()
+            if (config.sina) {
+                sina = new Sina()
+            }
+            if (config.douban) {
+                douban = new Douban()
+            }
         }
     }
 
@@ -38,7 +45,12 @@ class TwitterAsync {
 		try {
             def tweets = twitter.getTweets(getLatest())
             tweets.reverse().each { tweet ->
-                sina.updateStatus(tweet.text)
+                if (config.sina) {
+                    sina.updateStatus(tweet.text)
+                }
+                if (config.douban) {
+                    douban.saying(tweet.text)
+                }
                 
                 def entity = new Entity("Twitter")
                 entity.sinceId = tweet.id
