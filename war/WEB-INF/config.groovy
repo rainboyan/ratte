@@ -3,8 +3,8 @@ twitter {
     username = "rainboyan"
 	oauth.consumer_key = "5xEg1VuinKkKiwK4jkEUA"
 	oauth.consumer_secret = "aTOmGbKuinblP5jLzhzHDsb95LpVBSf3vCFil0inyT"
-    oauth_token = "45569022-EH78EcCopnhuyTR3qMF1jAsIDRFFV6d4T1VWwLwDs"
-    oauth_token_secret = "gQbNYrTsfEGTVRWVVBLeNh1RlFpOCUYdFdkoJAqwEIa"
+    oauth.token = "45569022-EH78EcCopnhuyTR3qMF1jAsIDRFFV6d4T1VWwLwDs"
+    oauth.token_secret = "gQbNYrTsfEGTVRWVVBLeNh1RlFpOCUYdFdkoJAqwEIa"
 }
 
 sina {
