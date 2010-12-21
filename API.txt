@@ -1,8 +1,17 @@
-1 Sina
+API
+=============================================
+1 Twitter
+http://www.williamlong.info/archives/2152.html
+
+2 Sina
   http://open.t.sina.com.cn/wiki/index.php/%E9%A6%96%E9%A1%B5
 
-2 Sohu
+3 Sohu
   http://open.t.sohu.com/en/%E9%A6%96%E9%A1%B5
 
-3 163
+4 Douban
+  http://www.douban.com/service/apidoc/reference/
+
+5 163
+  http://open.t.163.com/wiki/index.php?title=%E9%A6%96%E9%A1%B5
   
