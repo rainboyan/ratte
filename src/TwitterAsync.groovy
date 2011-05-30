@@ -10,8 +10,6 @@ class TwitterAsync {
 
     String username
     Twitter twitter
-    Sina sina
-    Douban douban
 
     TwitterAsync() {
         if (!init) {
@@ -46,9 +44,15 @@ class TwitterAsync {
             def tweets = twitter.getTweets(getLatest())
             tweets.reverse().each { tweet ->
                 if (config.sina) {
+                    def sina = new Sina()
                     sina.updateStatus(tweet.text)
                 }
+                if (config.qq) {
+                	def qq = new Qq()
+                    qq.updateStatus(tweet.text)
+                }
                 if (config.douban) {
+                    def douban = new Douban()
                     douban.saying(tweet.text)
                 }
                 

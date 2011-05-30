@@ -29,7 +29,7 @@ class Sina {
 				log.info "Sina Post success: ${response.code}"
 			}
 			else { 
-                log.info "Sina Post fail: ${response.code}"
+                log.info "Sina Post fail: ${response.code} : ${response.body}"
             }
 		}
 		catch (any) {
