@@ -21,3 +21,11 @@ douban {
     oauth.token_secret = ""
     oauth.callback = "http://rainboyan.appspot.com/"
 }
+
+qq {
+	oauth.consumer_key = "0907c655884d483681c8cea2435c2bfb"
+	oauth.consumer_secret = "63de988ecf4b6ce731e1641f2175e524"
+    oauth.token = ""
+    oauth.token_secret = ""
+    oauth.callback = "http://rainboyan.appspot.com/"
+}
