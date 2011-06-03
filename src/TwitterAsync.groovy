@@ -11,17 +11,12 @@ class TwitterAsync {
     String username
     Twitter twitter
 
+
     TwitterAsync() {
         if (!init) {
             config = ConfigurationHolder.config
             username = config.twitter.username
             twitter = new Twitter()
-            if (config.sina) {
-                sina = new Sina()
-            }
-            if (config.douban) {
-                douban = new Douban()
-            }
         }
     }
 
@@ -44,7 +39,7 @@ class TwitterAsync {
             def tweets = twitter.getTweets(getLatest())
             tweets.reverse().each { tweet ->
                 if (config.sina) {
-                    def sina = new Sina()
+                	def sina = new Sina()
                     sina.updateStatus(tweet.text)
                 }
                 if (config.qq) {
@@ -52,10 +47,21 @@ class TwitterAsync {
                     qq.updateStatus(tweet.text)
                 }
                 if (config.douban) {
-                    def douban = new Douban()
+                	def douban = new Douban()
                     douban.saying(tweet.text)
                 }
-                
+                if (config.t163) {
+                	def t163 = new T163()
+                    t163.updateStatus(tweet.text)
+                }
+                if (config.sohu) {
+                	def sohu = new Sohu()
+                    sohu.updateStatus(tweet.text)
+                }
+                if (config.fanfou) {
+                	def fanfou = new Fanfou()
+                    fanfou.updateStatus(tweet.text)
+                }
                 def entity = new Entity("Twitter")
                 entity.sinceId = tweet.id
                 entity.dateCreated = new Date()

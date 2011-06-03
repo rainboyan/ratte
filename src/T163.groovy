@@ -4,18 +4,18 @@ import org.scribe.model.*
 import org.scribe.oauth.*
 import groovyx.gaelyk.logging.GroovyLogger
 
-class Sina {
-    static final GroovyLogger log = new GroovyLogger('Sina')
+class T163 {
+    static final GroovyLogger log = new GroovyLogger('T163')
 	
-    String API_ROOT = "http://api.t.sina.com.cn"
+    String API_ROOT = "http://api.t.163.com"
 
     OAuthService service
     Token token
 
-    Sina() {
+    T163() {
         def config = ConfigurationHolder.config
-		service = new ServiceBuilder().provider(SinaApi.class).apiKey(config.sina.oauth.consumer_key).apiSecret(config.sina.oauth.consumer_secret).build()
-        token = new Token(config.sina.oauth.token, config.sina.oauth.token_secret)
+		service = new ServiceBuilder().provider(T163Api.class).apiKey(config.t163.oauth.consumer_key).apiSecret(config.t163.oauth.consumer_secret).build()
+        token = new Token(config.t163.oauth.token, config.t163.oauth.token_secret)
     }
 
     def Post(url, service, token, message) {
@@ -26,18 +26,18 @@ class Sina {
 			def response = request.send()
             
 			if (response.wasSuccessful()) {
-				log.info "Sina Post success: ${response.code}"
+				log.info "T163 Post success: ${response.code}"
 			}
 			else { 
-                log.warning "Sina Post fail: ${response.code} : ${response.body}"
+                log.warning "T163 Post fail: ${response.code} : ${response.body}"
             }
 		}
 		catch (any) {
-			log.warning "Sina Post ${url} error: ${any.message}"
+			log.warning "T163 Post ${url} error: ${any.message}"
 		}
 	}
 
 	def updateStatus(message) {
-		Post("$API_ROOT/statuses/update.xml", service, token, message)
+		Post("$API_ROOT/statuses/update.json", service, token, message)
 	}
 }

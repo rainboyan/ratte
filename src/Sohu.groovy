@@ -4,18 +4,18 @@ import org.scribe.model.*
 import org.scribe.oauth.*
 import groovyx.gaelyk.logging.GroovyLogger
 
-class Sina {
-    static final GroovyLogger log = new GroovyLogger('Sina')
+class Sohu {
+    static final GroovyLogger log = new GroovyLogger('Sohu')
 	
-    String API_ROOT = "http://api.t.sina.com.cn"
+    String API_ROOT = "http://api.t.sohu.com"
 
     OAuthService service
     Token token
 
-    Sina() {
+    Sohu() {
         def config = ConfigurationHolder.config
-		service = new ServiceBuilder().provider(SinaApi.class).apiKey(config.sina.oauth.consumer_key).apiSecret(config.sina.oauth.consumer_secret).build()
-        token = new Token(config.sina.oauth.token, config.sina.oauth.token_secret)
+		service = new ServiceBuilder().provider(SohuApi.class).apiKey(config.sohu.oauth.consumer_key).apiSecret(config.sohu.oauth.consumer_secret).build()
+        token = new Token(config.sohu.oauth.token, config.sohu.oauth.token_secret)
     }
 
     def Post(url, service, token, message) {
@@ -26,14 +26,14 @@ class Sina {
 			def response = request.send()
             
 			if (response.wasSuccessful()) {
-				log.info "Sina Post success: ${response.code}"
+				log.info "Sohu Post success: ${response.code}"
 			}
 			else { 
-                log.warning "Sina Post fail: ${response.code} : ${response.body}"
+                log.warning "Sohu Post fail: ${response.code} : ${response.body}"
             }
 		}
 		catch (any) {
-			log.warning "Sina Post ${url} error: ${any.message}"
+			log.warning "Sohu Post ${url} error: ${any.message}"
 		}
 	}
 

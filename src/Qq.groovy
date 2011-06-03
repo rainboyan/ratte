@@ -31,7 +31,7 @@ class Qq {
 				log.info "Qq Post success: ${response.code}"
 			}
 			else { 
-                log.info "Qq Post fail: ${response.code} : ${response.body}"
+                log.warning "Qq Post fail: ${response.code} : ${response.body}"
             }
 		}
 		catch (any) {

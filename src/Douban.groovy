@@ -44,7 +44,7 @@ class Douban {
 				log.info "Douban Post success: ${response.code}"
 			}
 			else { 
-                log.info "Douban Post fail: ${response.code}"
+                log.warning "Douban Post fail: ${response.code} : ${response.body}"
             }
 		}
 		catch (any) {
@@ -60,11 +60,11 @@ class Douban {
 
 class DoubanEntryBuilder {
     public static String buildSaying(String message) {
-		StringBuilder entry = new StringBuilder("<?xml version='1.0' encoding='UTF-8'?>");
-		entry.append("<entry xmlns:ns0=\"http://www.w3.org/2005/Atom\" ");
-		entry.append("xmlns:db=\"http://www.douban.com/xmlns/\">");
-		entry.append(String.format("<content>%s</content>", message));
-		entry.append("</entry>");
-		return entry.toString();
+		StringBuilder entry = new StringBuilder("<?xml version='1.0' encoding='UTF-8'?>")
+		entry.append("<entry xmlns:ns0=\"http://www.w3.org/2005/Atom\" ")
+		entry.append("xmlns:db=\"http://www.douban.com/xmlns/\">")
+		entry.append(String.format("<content>%s</content>", message))
+		entry.append("</entry>")
+		return entry.toString()
     }
 }
