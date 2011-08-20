@@ -1,4 +1,4 @@
-@ECHO OFF
+@ECHO ON
 rem set JAVA_HOME=C:\SDKs\jdk1.6.0
 
 rem %~dp0 is the expanded pathname of the current script under NT
@@ -9,7 +9,7 @@ set DEFAULT_PATH=%PATH%
 set DEFAULT_CLASSPATH=%CALCLASSPATH%
 
 set BINDIR=%LOCAL_TOOLS_HOME%\
-set LIBDIR=%LOCAL_TOOLS_HOME%\lib
+set LIBDIR=%LOCAL_TOOLS_HOME%lib
 set LOCALCLASSPATH=%LIBDIR%\scribe-1.2.0.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\commons-codec-1.4.jar
 set LOCALCLASSPATH=%LOCALCLASSPATH%;%LIBDIR%\commons-logging-1.1.jar
